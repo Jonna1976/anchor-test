@@ -1,0 +1,13 @@
+name: Anchor Test
+on: push
+jobs:
+  anchor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "hello world" > test.txt
+      - uses: AnchoringTrust/anchor-action@v1
+        with:
+          file: test.txt
+        env:
+          UMARISE_API_KEY: ${{ secrets.UMARISE_API_KEY }}
